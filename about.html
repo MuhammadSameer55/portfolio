@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Rizvi SEO Services Pakistan</title>
+    <meta name="description" content="Meet the team behind Pakistan's #1 SEO agency. Learn about our mission, values, and the experts who deliver guaranteed first page rankings.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#001F3F',
+                        'charcoal': '#2C3E50',
+                        'teal': '#008080',
+                        'gold': '#FFD700'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 31, 63, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #008080 0%, #006666 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #006666 0%, #004d4d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 128, 128, 0.3);
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 31, 63, 0.1);
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .about-hero {
+            background: linear-gradient(135deg, #001F3F 0%, #008080 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('resources/hero-bg.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .team-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .team-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="font-inter bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-poppins font-bold text-navy">Rizvi SEO</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-charcoal hover:text-teal transition-colors font-medium">Home</a>
+                        <a href="services.html" class="text-charcoal hover:text-teal transition-colors font-medium">Services</a>
+                        <a href="pricing.html" class="text-charcoal hover:text-teal transition-colors font-medium">Pricing</a>
+                        <a href="about.html" class="text-navy hover:text-teal transition-colors font-medium">About</a>
+                        <a href="index.html#contact" class="btn-primary text-white px-6 py-2 rounded-lg font-medium">Get Quote</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-navy hover:text-teal">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-teal">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-charcoal hover:text-teal">Services</a>
+                <a href="pricing.html" class="block px-3 py-2 text-charcoal hover:text-teal">Pricing</a>
+                <a href="about.html" class="block px-3 py-2 text-navy hover:text-teal">About</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-white bg-teal rounded-lg">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero pt-24 pb-16">
+        <div class="about-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl lg:text-6xl font-poppins font-bold text-white mb-6">About Rizvi SEO</h1>
+                    <p class="text-xl lg:text-2xl text-gray-200 mb-6">
+                        Pakistan's leading SEO agency with a proven track record of delivering exceptional results for businesses across the globe.
+                    </p>
+                    <p class="text-lg text-gray-300">
+                        Founded by Muhammad Muddasir Rizvi, our agency has grown from a one-person operation to a team of dedicated experts, 
+                        serving clients in USA, UK, Canada, Australia, UAE, KSA, Qatar, and Pakistan.
+                    </p>
+                </div>
+                
+                <div class="hidden lg:block">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-white mb-6">Our Mission</h3>
+                        <p class="text-gray-300 mb-4">
+                            To democratize SEO expertise and make premium digital marketing services accessible to businesses of all sizes, 
+                            regardless of their location or budget.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 mt-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold">500+</div>
+                                <div class="text-sm text-gray-300">Projects Completed</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold">98%</div>
+                                <div class="text-sm text-gray-300">Client Satisfaction</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold">15+</div>
+                                <div class="text-sm text-gray-300">Countries Served</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-poppins font-bold text-navy mb-4">Our Story</h2>
+                <p class="text-xl text-charcoal max-w-3xl mx-auto">
+                    From a single freelancer to Pakistan's leading SEO agency
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h3 class="text-3xl font-semibold text-navy mb-6">Founded on Excellence</h3>
+                    <p class="text-charcoal mb-6">
+                        Rizvi SEO Services was born from a passion for helping businesses succeed online. What started as Muhammad Muddasir Rizvi's 
+                        freelance journey in 2018 has evolved into Pakistan's most trusted SEO agency.
+                    </p>
+                    <p class="text-charcoal mb-6">
+                        Our founder's background in software engineering and digital marketing, combined with his certification from iSkills Pakistan, 
+                        laid the foundation for our data-driven approach to SEO. We believe in transparency, measurable results, and building 
+                        long-term partnerships with our clients.
+                    </p>
+                    <p class="text-charcoal">
+                        Today, we're proud to be Google Adsense publishing partners and have helped hundreds of businesses achieve first page 
+                        rankings across competitive industries and global markets.
+                    </p>
+                </div>
+                
+                <div class="reveal">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h4 class="text-2xl font-semibold text-navy mb-6">Our Values</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-teal rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-navy mb-1">Transparency</h5>
+                                    <p class="text-charcoal text-sm">Clear communication and honest reporting on all SEO activities</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-navy mb-1">Results-Driven</h5>
+                                    <p class="text-charcoal text-sm">Focus on measurable outcomes that impact your bottom line</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-navy rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-navy mb-1">Innovation</h5>
+                                    <p class="text-charcoal text-sm">Staying ahead with the latest SEO trends and AI optimization</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-teal rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-navy mb-1">Partnership</h5>
+                                    <p class="text-charcoal text-sm">Building long-term relationships based on trust and success</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-poppins font-bold text-navy mb-4">Meet Our Team</h2>
+                <p class="text-xl text-charcoal max-w-3xl mx-auto">
+                    Expert professionals dedicated to your SEO success
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CEO -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center reveal" onclick="openTeamModal('ceo')">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="resources/team-ceo.jpg" alt="Muhammad Muddasir Rizvi" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Muhammad Muddasir Rizvi</h3>
+                    <p class="text-teal font-medium mb-4">CEO & Founder</p>
+                    <p class="text-charcoal text-sm mb-4">
+                        Vetted SEO expert with 6+ years of experience in local, e-commerce, and technical SEO across global markets.
+                    </p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">Local SEO</span>
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">GEO/AEO</span>
+                    </div>
+                </div>
+
+                <!-- Technical SEO Expert -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center reveal" onclick="openTeamModal('technical')">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Sheikh Farooq</h3>
+                    <p class="text-teal font-medium mb-4">Technical SEO Expert</p>
+                    <p class="text-charcoal text-sm mb-4">
+                        Specializes in website optimization, Core Web Vitals, and technical audits for improved search performance.
+                    </p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">Technical SEO</span>
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">Site Speed</span>
+                    </div>
+                </div>
+
+                <!-- Link Building Expert -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center reveal" onclick="openTeamModal('linkbuilding')">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="resources/team-seo.jpg" alt="Safia Naaz" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Safia Naaz</h3>
+                    <p class="text-teal font-medium mb-4">Link Building Expert</p>
+                    <p class="text-charcoal text-sm mb-4">
+                        Expert in acquiring high-quality backlinks and building domain authority through white-hat strategies.
+                    </p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">Link Building</span>
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">DA Boost</span>
+                    </div>
+                </div>
+
+                <!-- Performance Marketer -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center reveal" onclick="openTeamModal('performance')">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="resources/team-marketing.jpg" alt="Munazza Jabeen" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Munazza Jabeen</h3>
+                    <p class="text-teal font-medium mb-4">Performance Marketer</p>
+                    <p class="text-charcoal text-sm mb-4">
+                        Combines SEO with paid advertising and conversion optimization for maximum ROI and business growth.
+                    </p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">PPC</span>
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">CRO</span>
+                    </div>
+                </div>
+
+                <!-- Video Animation Expert -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center reveal" onclick="openTeamModal('video')">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Khadija Arshad</h3>
+                    <p class="text-teal font-medium mb-4">Video Animation Expert</p>
+                    <p class="text-charcoal text-sm mb-4">
+                        Creates engaging video content and animations that boost user engagement and support SEO efforts.
+                    </p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">Video SEO</span>
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">Animation</span>
+                    </div>
+                </div>
+
+                <!-- WordPress Developer -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center reveal" onclick="openTeamModal('wordpress')">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="resources/team-dev.jpg" alt="Farhan Bashir" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Farhan Bashir</h3>
+                    <p class="text-teal font-medium mb-4">WordPress Developer</p>
+                    <p class="text-charcoal text-sm mb-4">
+                        WordPress specialist who implements SEO recommendations and optimizes websites for better performance.
+                    </p>
+                    <div class="flex justify-center space-x-2">
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">WordPress</span>
+                        <span class="bg-gray-100 text-charcoal px-3 py-1 rounded-full text-xs">Development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-poppins font-bold text-navy mb-4">Success Stories</h2>
+                <p class="text-xl text-charcoal max-w-3xl mx-auto">
+                    Real results from our SEO campaigns across different industries and markets
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card-hover bg-gray-50 rounded-xl overflow-hidden reveal">
+                    <div class="p-8">
+                        <div class="flex items-center mb-6">
+                            <img src="resources/case-study-ecommerce.jpg" alt="Profine Furniture" class="w-20 h-20 rounded-lg object-cover mr-6">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-navy">Profine Furniture</h3>
+                                <p class="text-charcoal">E-commerce SEO - Lahore, Pakistan</p>
+                                <div class="flex items-center mt-2">
+                                    <div class="flex text-gold mr-2">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-charcoal">5.0 (34 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#1</div>
+                                <div class="text-sm text-charcoal">office furniture lahore</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#2</div>
+                                <div class="text-sm text-charcoal">office chair lahore</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#2</div>
+                                <div class="text-sm text-charcoal">office sofa lahore</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#2</div>
+                                <div class="text-sm text-charcoal">cafe chairs lahore</div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-sm text-charcoal">
+                            <p class="mb-2"><strong>Challenge:</strong> Highly competitive furniture market in Lahore</p>
+                            <p class="mb-2"><strong>Solution:</strong> Comprehensive e-commerce SEO with local optimization</p>
+                            <p><strong>Results:</strong> 300% increase in organic traffic, #1 rankings for primary keywords</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gray-50 rounded-xl overflow-hidden reveal">
+                    <div class="p-8">
+                        <div class="flex items-center mb-6">
+                            <img src="resources/case-study-realestate.jpg" alt="FixitAutoGlass Dubai" class="w-20 h-20 rounded-lg object-cover mr-6">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-navy">FixitAutoGlass Dubai</h3>
+                                <p class="text-charcoal">Automotive SEO - Dubai, UAE</p>
+                                <div class="flex items-center mt-2">
+                                    <div class="flex text-gold mr-2">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-charcoal">5.0 (28 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#1</div>
+                                <div class="text-sm text-charcoal">car glass repair</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#1</div>
+                                <div class="text-sm text-charcoal">windshield repair dubai</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#2</div>
+                                <div class="text-sm text-charcoal">windscreen repair dubai</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-teal">#2</div>
+                                <div class="text-sm text-charcoal">window tinting dubai</div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-sm text-charcoal">
+                            <p class="mb-2"><strong>Challenge:</strong> Competitive automotive service market in Dubai</p>
+                            <p class="mb-2"><strong>Solution:</strong> Local SEO with Arabic and English optimization</p>
+                            <p><strong>Results:</strong> 250% increase in local leads, top 3 rankings achieved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-navy">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h2 class="text-4xl font-poppins font-bold text-white mb-6">Ready to Work With Us?</h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Join hundreds of satisfied clients who have achieved first page rankings with our expert team. 
+                    Let's discuss how we can help your business grow online.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#contact" class="btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+                        Get Free Consultation
+                    </a>
+                    <a href="pricing.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-navy transition-all inline-block">
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Modal -->
+    <div id="team-modal" class="team-modal">
+        <div class="modal-content p-8">
+            <div class="flex justify-between items-start mb-6">
+                <h3 id="modal-title" class="text-2xl font-bold text-navy"></h3>
+                <button onclick="closeTeamModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-content" class="text-charcoal">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-3xl font-poppins font-bold mb-4">Rizvi SEO Services</div>
+                <p class="text-gray-300 mb-6">Pakistan's #1 SEO Agency - Guaranteed First Page Rankings</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="index.html" class="text-gray-300 hover:text-teal transition-colors">Home</a>
+                    <a href="services.html" class="text-gray-300 hover:text-teal transition-colors">Services</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-teal transition-colors">Pricing</a>
+                    <a href="about.html" class="text-gray-300 hover:text-teal transition-colors">About</a>
+                </div>
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">&copy; 2024 Rizvi SEO Services. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Team Modal Functions
+        const teamData = {
+            ceo: {
+                title: 'Muhammad Muddasir Rizvi - CEO & Founder',
+                content: `
+                    <div class="mb-6">
+                        <img src="resources/team-ceo.jpg" alt="Muhammad Muddasir Rizvi" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <div class="text-center">
+                            <h4 class="text-xl font-semibold text-navy mb-2">Muhammad Muddasir Rizvi</h4>
+                            <p class="text-teal font-medium mb-4">Chief Executive Officer & Founder</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Background</h5>
+                            <p class="text-charcoal">Muddasir is a vetted SEO expert with over 6 years of hands-on experience in digital marketing. 
+                            He holds certifications from iSkills Pakistan and has successfully managed SEO campaigns across multiple global markets.</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Expertise</h5>
+                            <ul class="text-charcoal space-y-1">
+                                <li>• Local & E-commerce SEO</li>
+                                <li>• Technical & Semantic SEO</li>
+                                <li>• Answer & Generative Engine Optimization (GEO/AEO)</li>
+                                <li>• App Store Optimization (ASO)</li>
+                                <li>• Google Adsense Publishing Partnership</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Achievements</h5>
+                            <ul class="text-charcoal space-y-1">
+                                <li>• Top 5% Vetted SEO Expert</li>
+                                <li>• Google Adsense Publishing Partner</li>
+                                <li>• Proud Alumni of iSkills Pakistan</li>
+                                <li>• Successfully ranked 500+ websites</li>
+                                <li>• 98% client satisfaction rate</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            technical: {
+                title: 'Sheikh Farooq - Technical SEO Expert',
+                content: `
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="text-xl font-semibold text-navy mb-2">Sheikh Farooq</h4>
+                            <p class="text-teal font-medium mb-4">Technical SEO Expert</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Specialization</h5>
+                            <p class="text-charcoal">Sheikh Farooq specializes in technical SEO, website optimization, and Core Web Vitals improvement. 
+                            He has extensive experience in diagnosing and fixing technical issues that impact search performance.</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Key Skills</h5>
+                            <ul class="text-charcoal space-y-1">
+                                <li>• Website Speed Optimization</li>
+                                <li>• Core Web Vitals Improvement</li>
+                                <li>• Technical SEO Audits</li>
+                                <li>• Schema Markup Implementation</li>
+                                <li>• Mobile-First Optimization</li>
+                                <li>• Crawlability & Indexability</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Experience</h5>
+                            <p class="text-charcoal">With 4+ years in technical SEO, Farooq has optimized over 200 websites and helped clients 
+                            achieve significant improvements in search rankings through technical excellence.</p>
+                        </div>
+                    </div>
+                `
+            },
+            linkbuilding: {
+                title: 'Safia Naaz - Link Building Expert',
+                content: `
+                    <div class="mb-6">
+                        <img src="resources/team-seo.jpg" alt="Safia Naaz" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <div class="text-center">
+                            <h4 class="text-xl font-semibold text-navy mb-2">Safia Naaz</h4>
+                            <p class="text-teal font-medium mb-4">Link Building Expert</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Specialization</h5>
+                            <p class="text-charcoal">Safia is an expert in acquiring high-quality backlinks and building domain authority through 
+                            white-hat link building strategies. She focuses on sustainable, long-term link acquisition methods.</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Key Skills</h5>
+                            <ul class="text-charcoal space-y-1">
+                                <li>• High DA Backlink Acquisition</li>
+                                <li>• Guest Posting Campaigns</li>
+                                <li>• Broken Link Building</li>
+                                <li>• Resource Page Link Building</li>
+                                <li>• Competitor Link Analysis</li>
+                                <li>• Link Profile Cleanup</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Experience</h5>
+                            <p class="text-charcoal">With 3+ years in link building, Safia has successfully built over 5,000 high-quality backlinks 
+                            and helped numerous clients improve their domain authority and search rankings.</p>
+                        </div>
+                    </div>
+                `
+            },
+            performance: {
+                title: 'Munazza Jabeen - Performance Marketer',
+                content: `
+                    <div class="mb-6">
+                        <img src="resources/team-marketing.jpg" alt="Munazza Jabeen" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <div class="text-center">
+                            <h4 class="text-xl font-semibold text-navy mb-2">Munazza Jabeen</h4>
+                            <p class="text-teal font-medium mb-4">Performance Marketer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Specialization</h5>
+                            <p class="text-charcoal">Munazza combines SEO with paid advertising and conversion optimization to maximize ROI. 
+                            She focuses on integrated digital marketing strategies that drive measurable business growth.</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Key Skills</h5>
+                            <ul class="text-charcoal space-y-1">
+                                <li>• PPC Campaign Management</li>
+                                <li>• Conversion Rate Optimization (CRO)</li>
+                                <li>• Landing Page Optimization</li>
+                                <li>• Analytics & Reporting</li>
+                                <li>• A/B Testing</li>
+                                <li>• ROI Analysis</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Experience</h5>
+                            <p class="text-charcoal">With 4+ years in performance marketing, Munazza has managed campaigns with over $1M in ad spend 
+                            and consistently delivered 3-5x ROI for clients across various industries.</p>
+                        </div>
+                    </div>
+                `
+            },
+            video: {
+                title: 'Khadija Arshad - Video Animation Expert',
+                content: `
+                    <div class="mb-6">
+                        <div class="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="text-xl font-semibold text-navy mb-2">Khadija Arshad</h4>
+                            <p class="text-teal font-medium mb-4">Video Animation Expert</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Specialization</h5>
+                            <p class="text-charcoal">Khadija creates engaging video content and animations that boost user engagement and support SEO efforts. 
+                            She specializes in video SEO and multimedia content creation.</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Key Skills</h5>
+                            <ul class="text-charcoal space-y-1">
+                                <li>• Video Content Creation</li>
+                                <li>• 2D/3D Animation</li>
+                                <li>• Video SEO Optimization</li>
+                                <li>• Motion Graphics</li>
+                                <li>• Explainer Videos</li>
+                                <li>• Social Media Videos</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Experience</h5>
+                            <p class="text-charcoal">With 3+ years in video production, Khadija has created over 500 videos and helped clients 
+                            achieve significant improvements in engagement metrics and search visibility.</p>
+                        </div>
+                    </div>
+                `
+            },
+            wordpress: {
+                title: 'Farhan Bashir - WordPress Developer',
+                content: `
+                    <div class="mb-6">
+                        <img src="resources/team-dev.jpg" alt="Farhan Bashir" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <div class="text-center">
+                            <h4 class="text-xl font-semibold text-navy mb-2">Farhan Bashir</h4>
+                            <p class="text-teal font-medium mb-4">WordPress Developer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Specialization</h5>
+                            <p class="text-charcoal">Farhan is a WordPress specialist who implements SEO recommendations and optimizes websites 
+                            for better performance. He bridges the gap between SEO strategy and technical implementation.</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Key Skills</h5>
+                            <ul class="text-charcoal space-y-1">
+                                <li>• WordPress Development</li>
+                                <li>• Theme Customization</li>
+                                <li>• Plugin Development</li>
+                                <li>• Website Optimization</li>
+                                <li>• Responsive Design</li>
+                                <li>• E-commerce Integration</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-navy mb-2">Experience</h5>
+                            <p class="text-charcoal">With 5+ years in WordPress development, Farhan has built and optimized over 300 websites, 
+                            ensuring they are SEO-friendly and perform at their best.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+        
+        function openTeamModal(member) {
+            const modal = document.getElementById('team-modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            title.textContent = teamData[member].title;
+            content.innerHTML = teamData[member].content;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeTeamModal() {
+            const modal = document.getElementById('team-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('team-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTeamModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeTeamModal();
+            }
+        });
+    </script>
+</body>
+</html>

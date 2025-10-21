@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Pricing Plans - Rizvi SEO Services Pakistan</title>
+    <meta name="description" content="Affordable SEO pricing plans for Pakistan, Gulf, and Tier-1 countries. Get guaranteed first page rankings with our proven SEO strategies.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#001F3F',
+                        'charcoal': '#2C3E50',
+                        'teal': '#008080',
+                        'gold': '#FFD700'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 31, 63, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #008080 0%, #006666 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #006666 0%, #004d4d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 128, 128, 0.3);
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 31, 63, 0.1);
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pricing-hero {
+            background: linear-gradient(135deg, #001F3F 0%, #008080 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('resources/hero-bg.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .pricing-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card.featured {
+            border-color: #FFD700;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 31, 63, 0.2);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.07);
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #008080;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 128, 128, 0.3);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #008080;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 128, 128, 0.3);
+        }
+        
+        .calculator-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="font-inter bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-poppins font-bold text-navy">Rizvi SEO</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-charcoal hover:text-teal transition-colors font-medium">Home</a>
+                        <a href="services.html" class="text-charcoal hover:text-teal transition-colors font-medium">Services</a>
+                        <a href="pricing.html" class="text-navy hover:text-teal transition-colors font-medium">Pricing</a>
+                        <a href="about.html" class="text-charcoal hover:text-teal transition-colors font-medium">About</a>
+                        <a href="index.html#contact" class="btn-primary text-white px-6 py-2 rounded-lg font-medium">Get Quote</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-navy hover:text-teal">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-teal">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-charcoal hover:text-teal">Services</a>
+                <a href="pricing.html" class="block px-3 py-2 text-navy hover:text-teal">Pricing</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-teal">About</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-white bg-teal rounded-lg">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-hero pt-24 pb-16">
+        <div class="pricing-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl lg:text-6xl font-poppins font-bold text-white mb-6">SEO Pricing Plans</h1>
+            <p class="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto">
+                Choose the perfect SEO package for your business needs. All plans include guaranteed first page rankings and 24/7 support.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Calculator -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-4xl font-poppins font-bold text-navy mb-4">SEO Cost Calculator</h2>
+                <p class="text-xl text-charcoal max-w-3xl mx-auto">
+                    Customize your SEO package and get an instant price estimate
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="calculator-card bg-navy rounded-2xl p-8 text-white reveal">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Customize Your Package</h3>
+                            
+                            <div class="mb-8">
+                                <label class="block text-lg font-medium mb-4">Number of Keywords</label>
+                                <div class="relative">
+                                    <input type="range" id="keyword-slider" class="slider w-full" min="3" max="10" value="3">
+                                    <div class="flex justify-between text-sm text-gray-300 mt-2">
+                                        <span>3</span>
+                                        <span>10</span>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <span class="text-3xl font-bold text-gold" id="keyword-count">3</span>
+                                    <span class="text-gray-300 ml-2">Keywords</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <label class="block text-lg font-medium mb-4">Target Market</label>
+                                <select id="market-select" class="w-full p-4 bg-white text-navy rounded-lg">
+                                    <option value="pakistan">Pakistan</option>
+                                    <option value="gulf">Gulf & Middle East</option>
+                                    <option value="tier1">Tier-1 Countries</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <label class="block text-lg font-medium mb-4">Additional Services</label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="content-marketing" class="mr-3 w-5 h-5 text-teal">
+                                        <span>Content Marketing (+$200/month)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="social-media" class="mr-3 w-5 h-5 text-teal">
+                                        <span>Social Media Management (+$150/month)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="reputation-management" class="mr-3 w-5 h-5 text-teal">
+                                        <span>Reputation Management (+$300/month)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Your Custom Quote</h3>
+                            
+                            <div class="bg-white bg-opacity-10 rounded-xl p-6 mb-6">
+                                <div class="text-center mb-4">
+                                    <div class="text-5xl font-bold text-gold mb-2" id="total-price">$100</div>
+                                    <div class="text-gray-300">per month</div>
+                                </div>
+                                
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span>Base Package:</span>
+                                        <span id="base-price">$100</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Additional Keywords:</span>
+                                        <span id="keyword-price">$0</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Market Premium:</span>
+                                        <span id="market-price">$0</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Add-on Services:</span>
+                                        <span id="addon-price">$0</span>
+                                    </div>
+                                    <hr class="border-gray-600">
+                                    <div class="flex justify-between font-semibold text-lg">
+                                        <span>Total:</span>
+                                        <span id="final-price">$100</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3 text-sm text-gray-300 mb-6">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span id="keyword-included">3 Commercial Keywords</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Technical & On-Page SEO</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Monthly SEO Reports</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>24/7 WhatsApp Support</span>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg" onclick="alert('Quote request submitted! We will contact you within 24 hours.')">
+                                Get This Package
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-poppins font-bold text-navy mb-4">Our Standard Plans</h2>
+                <p class="text-xl text-charcoal max-w-3xl mx-auto">
+                    Choose from our pre-configured SEO packages designed for different markets and business needs
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Pakistan Plan -->
+                <div class="pricing-card bg-gray-50 rounded-2xl p-8 reveal">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-navy mb-2">Pakistan Plan</h3>
+                        <p class="text-charcoal mb-4">Perfect for local Pakistani businesses</p>
+                        <div class="text-4xl font-bold text-teal mb-2">Rs 30,000</div>
+                        <div class="text-charcoal">per month</div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">3 Commercial Keywords</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Basic Competitor Analysis</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Full Website SEO</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Local SEO Optimization</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Social Media Management (2 Platforms)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Google Business Profile Optimization</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">GEO/AEO Optimization</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">High DA Backlinks (50+)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Monthly SEO Audit & Report</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg" onclick="alert('Pakistan plan selected! We will contact you within 24 hours.')">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <!-- Gulf Plan (Featured) -->
+                <div class="pricing-card featured bg-gray-50 rounded-2xl p-8 reveal">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gold text-navy px-6 py-2 rounded-full font-semibold text-sm">Most Popular</span>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-navy mb-2">Gulf Plan</h3>
+                        <p class="text-charcoal mb-4">For Gulf & Middle East markets</p>
+                        <div class="text-4xl font-bold text-teal mb-2">Rs 50,000</div>
+                        <div class="text-charcoal">per month</div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">3 Commercial Keywords</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Advanced Competitor Analysis</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Multi-Language SEO (Arabic + English)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Landing Page Optimization</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Social Media Management (3 Platforms)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">100 Middle East Citations</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">30 Cloud Stacking Backlinks</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">High DA Backlinks (60+)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Content Marketing (3 Blogs/Month)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Monthly Strategy Session</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg" onclick="alert('Gulf plan selected! We will contact you within 24 hours.')">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <!-- Tier-1 Plan -->
+                <div class="pricing-card bg-gray-50 rounded-2xl p-8 reveal">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-navy mb-2">Tier-1 Plan</h3>
+                        <p class="text-charcoal mb-4">For USA, UK, Canada, Australia</p>
+                        <div class="text-4xl font-bold text-teal mb-2">Rs 70,000</div>
+                        <div class="text-charcoal">per month</div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">In-depth Competitor Research</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Enterprise-Level Optimization</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">High-Competition Keywords</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Multi-Channel SEO Strategy</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Conversion Rate Optimization</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Social Media Management (4 Platforms)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Advanced Technical SEO</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">High DA Backlinks (70+)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Content Marketing (4 Blogs/Month)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-charcoal">Reputation Management</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg" onclick="alert('Tier-1 plan selected! We will contact you within 24 hours.')">
+                        Choose Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-poppins font-bold text-navy mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-charcoal max-w-3xl mx-auto">
+                    Common questions about our SEO pricing and services
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-white rounded-xl p-6 card-hover reveal">
+                    <h3 class="text-xl font-semibold text-navy mb-4">What are monthly SEO charges?</h3>
+                    <p class="text-charcoal">Our SEO charges vary based on your target market and requirements. Pakistan plans start from Rs 30,000/month, Gulf plans from Rs 50,000/month, and Tier-1 plans from Rs 70,000/month. All plans include comprehensive SEO services with guaranteed results.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 card-hover reveal">
+                    <h3 class="text-xl font-semibold text-navy mb-4">How much time do you take to rank a website on Google?</h3>
+                    <p class="text-charcoal">Typically, we start seeing improvements within 2-3 months, with significant rankings achieved in 4-6 months. However, this varies based on competition, keyword difficulty, and your website's current state. We provide monthly progress reports to track your rankings.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 card-hover reveal">
+                    <h3 class="text-xl font-semibold text-navy mb-4">Do you have any SEO clients outside Pakistan?</h3>
+                    <p class="text-charcoal">Yes, we have successful SEO campaigns running in USA, UK, Canada, Australia, UAE, Saudi Arabia, Qatar, and other countries. Our team has extensive experience in international SEO and understands the nuances of different markets.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 card-hover reveal">
+                    <h3 class="text-xl font-semibold text-navy mb-4">What kind of ROI can I expect from SEO?</h3>
+                    <p class="text-charcoal">SEO typically delivers 3-5x ROI within the first year, with increasing returns over time. Unlike paid advertising, SEO provides long-term sustainable results. The exact ROI depends on your industry, competition, and the value of your products/services.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 card-hover reveal">
+                    <h3 class="text-xl font-semibold text-navy mb-4">How do you handle Google algorithm updates?</h3>
+                    <p class="text-charcoal">We use only white-hat SEO techniques that comply with Google's guidelines. Our strategies are future-proof and designed to withstand algorithm updates. We continuously monitor changes and adjust our strategies to ensure your rankings remain stable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-navy">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h2 class="text-4xl font-poppins font-bold text-white mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Join hundreds of satisfied clients who have achieved first page rankings with our proven SEO strategies. 
+                    Get your free consultation today and start your journey to the top of search results.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#contact" class="btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+                        Get Free Consultation
+                    </a>
+                    <a href="services.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-navy transition-all inline-block">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-3xl font-poppins font-bold mb-4">Rizvi SEO Services</div>
+                <p class="text-gray-300 mb-6">Pakistan's #1 SEO Agency - Guaranteed First Page Rankings</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="index.html" class="text-gray-300 hover:text-teal transition-colors">Home</a>
+                    <a href="services.html" class="text-gray-300 hover:text-teal transition-colors">Services</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-teal transition-colors">Pricing</a>
+                    <a href="about.html" class="text-gray-300 hover:text-teal transition-colors">About</a>
+                </div>
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">&copy; 2024 Rizvi SEO Services. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Pricing Calculator Logic
+        const keywordSlider = document.getElementById('keyword-slider');
+        const keywordCount = document.getElementById('keyword-count');
+        const marketSelect = document.getElementById('market-select');
+        const contentMarketing = document.getElementById('content-marketing');
+        const socialMedia = document.getElementById('social-media');
+        const reputationManagement = document.getElementById('reputation-management');
+        
+        const totalPrice = document.getElementById('total-price');
+        const basePrice = document.getElementById('base-price');
+        const keywordPrice = document.getElementById('keyword-price');
+        const marketPrice = document.getElementById('market-price');
+        const addonPrice = document.getElementById('addon-price');
+        const finalPrice = document.getElementById('final-price');
+        const keywordIncluded = document.getElementById('keyword-included');
+        
+        function updatePricing() {
+            const keywords = parseInt(keywordSlider.value);
+            const market = marketSelect.value;
+            
+            let baseCost = 100;
+            let keywordCost = 0;
+            let marketCost = 0;
+            let addonCost = 0;
+            
+            // Base pricing
+            if (market === 'pakistan') {
+                baseCost = 100;
+                marketCost = 0;
+            } else if (market === 'gulf') {
+                baseCost = 167;
+                marketCost = 67;
+            } else if (market === 'tier1') {
+                baseCost = 233;
+                marketCost = 133;
+            }
+            
+            // Additional keywords (beyond 3)
+            if (keywords > 3) {
+                keywordCost = (keywords - 3) * 25;
+            }
+            
+            // Add-on services
+            if (contentMarketing.checked) addonCost += 200;
+            if (socialMedia.checked) addonCost += 150;
+            if (reputationManagement.checked) addonCost += 300;
+            
+            const totalCost = baseCost + keywordCost + marketCost + addonCost;
+            
+            // Update display
+            keywordCount.textContent = keywords;
+            totalPrice.textContent = `$${totalCost}`;
+            basePrice.textContent = `$${baseCost}`;
+            keywordPrice.textContent = `$${keywordCost}`;
+            marketPrice.textContent = `$${marketCost}`;
+            addonPrice.textContent = `$${addonCost}`;
+            finalPrice.textContent = `$${totalCost}`;
+            keywordIncluded.textContent = `${keywords} Commercial Keywords`;
+        }
+        
+        // Event listeners
+        keywordSlider.addEventListener('input', updatePricing);
+        marketSelect.addEventListener('change', updatePricing);
+        contentMarketing.addEventListener('change', updatePricing);
+        socialMedia.addEventListener('change', updatePricing);
+        reputationManagement.addEventListener('change', updatePricing);
+        
+        // Initialize
+        updatePricing();
+    </script>
+</body>
+</html>
